@@ -50,6 +50,8 @@ class node:
 		out="out_%s"%id
 		if(self.value=="!"):
 			if(self.left.left==None):
+				if(id==0):
+					out="out"
 				exp=expression("!",self.left.value)
 				sim_file.write(exp.create_sim(out))
 				return out
