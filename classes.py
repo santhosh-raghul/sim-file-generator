@@ -54,7 +54,9 @@ class node:
 				sim_file.write(exp.create_sim(out))
 				return out
 			else:
-				left_out=self.left.sim_file_from_tree(sim_file,id+1,0)
+				if(id!=0):
+					id+=1
+				left_out=self.left.sim_file_from_tree(sim_file,id,0)
 				return left_out
 		else:
 			left_out=self.left.sim_file_from_tree(sim_file,id+1)
