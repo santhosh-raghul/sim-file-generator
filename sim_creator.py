@@ -5,4 +5,3 @@ if __name__ == "__main__":
 	exp=input("Enter expression : ")
 	filename=input("Enter filename : ")
 	create_simfile(exp,filename)
-	print("\n%s created successfully"%filename)

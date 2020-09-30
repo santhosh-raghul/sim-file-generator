@@ -101,9 +101,14 @@ def create_tree(exp):
 def create_simfile(exp,filename):
 	exp="(%s)"%parse("(%s)"%exp)
 	root=create_tree(exp)
+	if len(exp)==3:
+		print("\nError!")
+		return -1
 	# root.print()
 	sim_file=open(filename,"w")
 	root.sim_file_from_tree(sim_file)
 	sim_file.write("| sim file generated using sim_creater.py\n")
 	sim_file.write("| boolean expression is %s"%exp[1:-1])
 	sim_file.close()
+	print("\n%s created successfully"%filename)
+	print("\nboolean expression is %s"%exp[1:-1])
