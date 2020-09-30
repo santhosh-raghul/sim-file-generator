@@ -10,20 +10,20 @@ class expression:
 
 	def create_sim(self,out):
 		if(self.operator=='!'):
-			return "p %s vdd %s 2 4\nn %s gnd %s 2 4\n\n"%(self.operand_1,out,self.operand_1,out)
+			return "p %s Vdd %s 2 4\nn %s Gnd %s 2 4\n\n"%(self.operand_1,out,self.operand_1,out)
 		elif(self.operator=='+'):
 			inter=self.operand_1+"_nor_"+self.operand_2+"_int"
-			p1="p %s %s %s 2 4\n"%(self.operand_1,"vdd",inter)
+			p1="p %s %s %s 2 4\n"%(self.operand_1,"Vdd",inter)
 			p2="p %s %s %s 2 4\n"%(self.operand_2,inter,out)
-			n1="n %s %s %s 2 4\n"%(self.operand_1,out,"gnd")
-			n2="n %s %s %s 2 4\n\n"%(self.operand_2,out,"gnd")
+			n1="n %s %s %s 2 4\n"%(self.operand_1,out,"Gnd")
+			n2="n %s %s %s 2 4\n\n"%(self.operand_2,out,"Gnd")
 			return p1+p2+n1+n2
 		elif(self.operator=='.'):
 			inter=self.operand_1+"_nand_"+self.operand_2+"_int"
-			p1="p %s %s %s 2 4\n"%(self.operand_1,"vdd",out)
-			p2="p %s %s %s 2 4\n"%(self.operand_2,"vdd",out)
+			p1="p %s %s %s 2 4\n"%(self.operand_1,"Vdd",out)
+			p2="p %s %s %s 2 4\n"%(self.operand_2,"Vdd",out)
 			n1="n %s %s %s 2 4\n"%(self.operand_1,out,inter)
-			n2="n %s %s %s 2 4\n\n"%(self.operand_2,inter,"gnd")
+			n2="n %s %s %s 2 4\n\n"%(self.operand_2,inter,"Gnd")
 			return p1+p2+n1+n2
 
 class node:
