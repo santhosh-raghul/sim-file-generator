@@ -106,6 +106,7 @@ def create_simfile(exp,filename):
 		return -1
 	# root.print()
 	sim_file=open(filename,"w")
+	sim_file.write("| units: 100 tech: scmos format: MIT\n\n")
 	root.sim_file_from_tree(sim_file)
 	sim_file.write("| sim file generated using sim_creater.py\n")
 	sim_file.write("| boolean expression is %s"%exp[1:-1])
